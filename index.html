@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Too Much</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Blurred background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://static.wikia.nocookie.net/bookoflife/images/7/7e/Chuybaby.jpg/revision/latest?cb=20180915041953');
+            background-size: 200px 200px; /* Size of each repeated image */
+            background-repeat: repeat;
+            filter: blur(10px);
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .click-me {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #333;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="click-me">CLICK ME (PIGGY) </div>
+        <img src="https://static.wikia.nocookie.net/bookoflife/images/7/7e/Chuybaby.jpg/revision/latest?cb=20180915041953" alt="Chuy">
+        <div class="title">I love you too much. Heaven's my witness and this is a fact</div>
+    </div>
+    
+    <!-- Hidden audio that plays in background -->
+    <audio autoplay loop>
+        <source src="ily.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script>
+        const audio = document.querySelector('audio');
+        document.body.addEventListener('click', () => {
+            audio.play();
+        }, { once: true });
+    </script>
+</body>
+</html>
